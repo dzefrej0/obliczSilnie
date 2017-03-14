@@ -17,21 +17,24 @@ private SilniaService silniaService;
 
 
 
-    @RequestMapping(value = "silnia.s", method = RequestMethod.GET)
+    @RequestMapping(value = "silnia.s")
     public ModelAndView printAll() throws ServletException, IOException {
-        List<BigInteger> all = silniaService.getAll();
+//        List<BigInteger> all = silniaService.getAll();
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("silnia1.html");
-        mav.addObject("silniaList", all);
+        mav.setViewName("silnia1");
+//        mav.addObject("silniaList", all);
         return mav;
     }
 
 
     @RequestMapping(value  = "/index")
-    public String wypisz(Model model){
-        model.addAttribute("message", "powinna sie wyświetlić ta wiadomość");
+    public ModelAndView wypisz(Model model){
+        model.addAttribute("message", "wyświetlenie tej wiadomości oznacza że thymeleaf działa!");
 
-        return "index";
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("index");
+
+        return mav;
     }
 
 
