@@ -34,13 +34,13 @@ public SilniaController(SilniaService silniaService) {this.silniaService = silni
 
     @RequestMapping(value = "iterating.s", method = RequestMethod.POST)
     public ModelAndView liczIteracja(@RequestParam int n) throws ServletException, IOException {
-//        silniaService.liczIteracja(n);
+        silniaService.liczIteracja(n);
         return new ModelAndView("redirect:silnia.s");
     }
 
     @RequestMapping(value = "recursion.s", method = RequestMethod.POST)
     public ModelAndView obliczSilniaRekurencja(@RequestParam int n) throws ServletException, IOException {
-//        silniaService.obliczSilniaRekurencja(n);
+       silniaService.obliczSilniaRekurencja(n);
         if (n > 12000) {
             throw new ArithmeticException("maxymalna wartość dla metody rkurencyjnej to 12000");
         }

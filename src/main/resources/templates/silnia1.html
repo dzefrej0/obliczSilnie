@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 
 </head>
@@ -7,9 +8,7 @@
 <body>
 <script type="text/javascript">
     function mojsubmit() {
-        this.document.getElementById("form").action = this.document.getElementById("selectAction").value;
-        return true;
-    }
+        this.document.getElementById("form").action = this.document.getElementById("selectAction").value; return true;}
 </script>
 
 <form id="form" method="POST" accept-charset="utf-8" action="/recursion.s" onsubmit="return mojsubmit()">
@@ -23,14 +22,14 @@
     <input type="submit" value="wyslij zapytanie" var="btn1"/>
 
     <input type="reset" value="Wyczysc"/>
-
+</form>
 
 <tr>
     <th:each items="${silniaList}">
-        <th:li>${silniaList}</th:li>
+        <td th:text="${silniaList}"/>
     </th:each>
 </tr>
-</form>
+
 </body>
 
 </html>
