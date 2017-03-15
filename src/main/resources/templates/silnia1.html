@@ -10,7 +10,10 @@
 <tbody>
 <script type="text/javascript">
     function mojsubmit() {
-        this.document.getElementById("form").action = this.document.getElementById("selectAction").value; return true;}
+
+        this.document.getElementById("form1").action = this.document.getElementById("selectAction").value;
+        this.document.getElementById("form").action = this.document.getElementById("selectAction").value;
+        return true;}
 </script>
 
 <form id="form" method="POST" accept-charset="utf-8" action="/recursion.s" onsubmit="return mojsubmit()">
@@ -24,19 +27,19 @@
     <input type="submit" value="wyślij zapytanie" var="btn1"/>
 
 
+    <!--<label for="type" th:text="#{seedstarter.type}">Type</label>-->
+
+
 </form>
 
-
-
-
-<select th:field="*{silniaList}">
-    <option th:each="selectAction : ${allOpts}"
-            th:value="${silniaList}"
-            th:text="#{${silniaList}}">Wireframe</option>
+<form th:for="a" id="form1" method="POST" accept-charset="utf-8" action="/recursion.s" onsubmit="th:return mojsubmit()">
+<select th:id="/recursion.s" onsubmit="return mojosubmit()">
+    <option th:value="${text4}" th:text="#{${text3}}"></option>
+    <option th:value="${text4}" th:text="#{${text4}}"></option>
 </select>
 
 
-
+</form>
 
 <ttr>
     <th:each items="${silniaList}">

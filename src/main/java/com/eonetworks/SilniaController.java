@@ -20,14 +20,21 @@ public class SilniaController {
 private SilniaService silniaService;
 @Autowired
 public SilniaController(SilniaService silniaService) {this.silniaService = silniaService;}
-    public List<BigInteger> outputx = new ArrayList<BigInteger>();
+    public List<String> outputx = new ArrayList<>();
+String a = "aąćęssv";
+String b = "bweewvdwćęęę";
 
+    @ModelAttribute("allOpts")
+    public List<String> populateDropBox(Model model)
+    {
+        model.addAttribute("text3", "wybierz rekurencję");
+        model.addAttribute("text4", "wybierz iterację");
 
-//    @ModelAttribute("allOpts")
-//    public List<SilniaService> populateDropBox()
-//    {
-//        return Arrays.asList(silniaService.getAll());
-//    }
+        outputx.add(a);
+        outputx.add(b);
+
+        return outputx;
+    }
 
 
 
