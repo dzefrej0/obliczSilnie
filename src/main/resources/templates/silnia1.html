@@ -2,8 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-
+    <!--<h4 th:text="wybierz opcje"></h4>-->
 </head>
+
 
 <body>
 <script type="text/javascript">
@@ -21,12 +22,14 @@
     <input type="number" name="n"/>
     <input type="submit" value="wyslij zapytanie" var="btn1"/>
 
-    <input type="reset" value="Wyczysc"/>
+
 </form>
 
 <tr>
     <th:each items="${silniaList}">
         <td th:text="${silniaList}"/>
+        <input type="reset" value="Wyczysc" name="wyczysc"/>
+        <!--dodać funkcjonalność do buttona-->
     </th:each>
 </tr>
 
