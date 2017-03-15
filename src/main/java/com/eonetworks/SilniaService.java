@@ -29,6 +29,7 @@ public class SilniaService {
     public BigInteger liczIteracja(Integer n) {                         //POST
 
         BigInteger silnia = BigInteger.ONE;
+        getAll().add(silnia);
         for (int i = 2; i <= n; i++)
             silnia = silnia.multiply(BigInteger.valueOf(i));
         output.add(silnia);

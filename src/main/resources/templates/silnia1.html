@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<thtml xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <!--<h4 th:text="wybierz opcje"></h4>-->
-</head>
+<thead>
+    <h3 th:text="${title1}"></h3>
+
+</thead>
 
 
-<body>
+<tbody>
 <script type="text/javascript">
     function mojsubmit() {
         this.document.getElementById("form").action = this.document.getElementById("selectAction").value; return true;}
@@ -20,19 +21,35 @@
     </select>
 
     <input type="number" name="n"/>
-    <input type="submit" value="wyslij zapytanie" var="btn1"/>
+    <input type="submit" value="wyślij zapytanie" var="btn1"/>
 
 
 </form>
 
-<tr>
+
+
+
+<select th:field="*{silniaList}">
+    <option th:each="selectAction : ${allOpts}"
+            th:value="${silniaList}"
+            th:text="#{${silniaList}}">Wireframe</option>
+</select>
+
+
+
+
+<ttr>
     <th:each items="${silniaList}">
         <td th:text="${silniaList}"/>
         <input type="reset" value="Wyczysc" name="wyczysc"/>
         <!--dodać funkcjonalność do buttona-->
     </th:each>
-</tr>
+</ttr>
 
-</body>
+</tbody>
+<tfooter>
 
-</html>
+    <h5 th:text="${message}"></h5>
+
+</tfooter>
+</thtml>
