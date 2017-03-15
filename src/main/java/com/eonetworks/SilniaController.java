@@ -1,5 +1,6 @@
 package com.eonetworks;
 
+import com.eonetworks.SilniaDatabase.SilniaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,24 +16,28 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+
 @Controller
 public class SilniaController {
 private SilniaService silniaService;
+private SilniaRepository silniaRepository;
+
+
 @Autowired
 public SilniaController(SilniaService silniaService) {this.silniaService = silniaService;}
     public List<String> outputx = new ArrayList<>();
-String a = "aąćęssv";
-String b = "bweewvdwćęęę";
+String a = "a";
+String b = "b";
+
 
     @ModelAttribute("allOpts")
     public List<String> populateDropBox(Model model)
     {
         model.addAttribute("text3", "wybierz rekurencję");
         model.addAttribute("text4", "wybierz iterację");
-
         outputx.add(a);
         outputx.add(b);
-
         return outputx;
     }
 
