@@ -1,0 +1,22 @@
+Właścicielem plików należących do sytemu bazy danych będzie użytkownik "dzefrej0".
+Ten użytkownik musi jednocześnie być właścicielem procesu serwera.
+
+Klaster bazy zostanie utworzony z zestawem reguł językowych "Polish_Poland.1250".
+initdb: nie można znaleźć odpowiedniej konfiguracji wyszukiwania tekstowego dla lokalizacji "Polish_Poland.1250"
+Domyślna konfiguracja wyszukiwania tekstowego zostanie ustawiona na "simple".
+
+Sumy kontrolne stron danych są zablokowane.
+
+ustalanie uprawnień katalogu C:/PostgreSQL/data/pg96 ... ok
+tworzenie podkatalogów ... ok
+wybieranie domyślnej wartości max_connections ... 100
+wybieranie domyślnej wartości shared_buffers ... 128MB
+wybór implementacji dynamicznej pamięci współdzielonej ... windows
+tworzenie plików konfiguracyjnych ... ok
+wykonywanie skryptu ładowania wstępnego ... ok
+wykonywanie inicjacji po ładowaniu wstępnym ... ok
+synchronizacja danych na dysk ... ok
+
+Sukces. Teraz możesz uruchomić serwer bazy danych używając:
+
+    "C:\POSTGR~1\pg96\bin\"pg_ctl -D "C:\PostgreSQL\data\pg96" -l plik_z_logami start
