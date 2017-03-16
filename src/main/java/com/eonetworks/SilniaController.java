@@ -13,9 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.ServletException;
 import java.io.IOException;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 
 @Controller
@@ -26,9 +24,24 @@ private SilniaRepository silniaRepository;
 
 @Autowired
 public SilniaController(SilniaService silniaService) {this.silniaService = silniaService;}
+
+
     public List<String> outputx = new ArrayList<>();
 String a = "a";
 String b = "b";
+
+
+
+
+    @ModelAttribute("allTypes")
+    public List<DropDown> populateTypes(Model model) {
+        model.addAttribute("text3", "wybierz rekurencję");
+        model.addAttribute("text4", "wybierz iterację");
+
+
+
+        return Arrays.asList(DropDown.ALL);
+    }
 
 
     @ModelAttribute("allOpts")
@@ -51,8 +64,18 @@ String b = "b";
         mav.addObject("silniaList", all);
         model.addAttribute("message", "wyświetlenie tej wiadomości oznacza że thymeleaf działa!");
         model.addAttribute("title1", "Oblicz wartość silni");
-        return mav;
-    }
+        try {
+            Map<String, String> sampleDropdownMap = new HashMap<String, String>();
+            sampleDropdownMap.put("Java", "java");
+            sampleDropdownMap.put("PHP", "php");
+
+            mav = new ModelAndView("hello", "dropDownItems", sampleDropdownMap);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+            return mav;
+        }
 
 
 

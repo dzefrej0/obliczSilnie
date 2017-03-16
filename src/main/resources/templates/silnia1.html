@@ -31,15 +31,24 @@
 
 
 
-
-<form th:for="a" id="form1" method="POST" accept-charset="utf-8" action="/recursion.s" onsubmit="th:return mojsubmit()">
-<select th:id="dropID" onsubmit="return mojosubmit()">
-    <option th:value="${lolopierdolo}" th:text="#{${text3}}"></option>
-    <option th:value="${nieważne}" th:text="#{${text4}}"></option>
+<select>
+    <option th:each="dropDownItem : ${dropDownItems}"
+            th:value="${dropDownItem.value}"
+            th:text="${dropDownItem.key}" />
 </select>
 
 
-</form>
+
+
+<!--<form th:for="a" id="form1" method="POST" accept-charset="utf-8" action="/recursion.s" onsubmit="th:return mojsubmit()">-->
+<!--&lt;!&ndash;<select th:id="dropID" onsubmit="return mojosubmit()">&ndash;&gt;-->
+    <!--<select th:field="*{a}">-->
+        <!--<option th:each="a : ${allTypes}"-->
+                <!--th:value="${type}"-->
+                <!--th:text="#{${type}}">Wireframe</option>-->
+    <!--</select>-->
+
+<!--</form>-->
 
 <ttr>
     <th:each items="${silniaList}">

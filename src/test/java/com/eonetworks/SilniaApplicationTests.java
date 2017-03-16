@@ -1,16 +1,26 @@
 package com.eonetworks;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+import java.math.BigInteger;
+
+import static org.junit.Assert.assertEquals;
+
 public class SilniaApplicationTests {
+    SilniaService silniaService = new SilniaService();
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void ShouldReturnRightNumberRecursion() throws Exception {
+        int a = 12;
+        BigInteger silnia = silniaService.obliczSilniaRekurencja(a);
+        assertEquals(silnia.intValue(), 479001600);
 
+    }
+
+    @Test
+    public void shouldReturnRightNumberIterating() throws Exception {
+
+        BigInteger silnia1 = silniaService.liczIteracja(12);
+        assertEquals(silnia1.intValue(), 479001600);
+    }
 }
