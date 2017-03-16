@@ -30,16 +30,16 @@
     <!--<label for="type" th:text="#{seedstarter.type}">Type</label>-->
 
 
-<!--</form>-->
-
-<!--<form th:for="a" id="form1" method="POST" accept-charset="utf-8" action="/recursion.s" onsubmit="th:return mojsubmit()">-->
-<!--<select th:id="/recursion.s" onsubmit="return mojosubmit()">-->
-    <!--<option th:value="${text4}" th:text="#{${text3}}"></option>-->
-    <!--<option th:value="${text4}" th:text="#{${text4}}"></option>-->
-<!--</select>-->
 
 
-<!--</form>-->
+<form th:for="a" id="form1" method="POST" accept-charset="utf-8" action="/recursion.s" onsubmit="th:return mojsubmit()">
+<select th:id="dropID" onsubmit="return mojosubmit()">
+    <option th:value="${lolopierdolo}" th:text="#{${text3}}"></option>
+    <option th:value="${nieważne}" th:text="#{${text4}}"></option>
+</select>
+
+
+</form>
 
 <ttr>
     <th:each items="${silniaList}">
