@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 <thtml xmlns:th="http://www.thymeleaf.org">
 
-<thead>
+    <thead>
     <h3 th:text="${title1}"></h3>
 
-</thead>
+    </thead>
 
 
-<tbody>
-<script type="text/javascript">
-    function mojsubmit() {
+    <tbody>
+    <script type="text/javascript">
+        function mojsubmit() {
+            this.document.getElementById("form1").action = this.document.getElementById("selectAction").value;
+            this.document.getElementById("form").action = this.document.getElementById("selectAction").value;
+            return true;}
+    </script>
 
-        this.document.getElementById("form1").action = this.document.getElementById("selectAction").value;
-        this.document.getElementById("form").action = this.document.getElementById("selectAction").value;
-        return true;}
-</script>
+    <form id="form" method="POST" accept-charset="utf-8" action="/recursion.s" onsubmit="return mojsubmit()">
 
-<form id="form" method="POST" accept-charset="utf-8" action="/recursion.s" onsubmit="return mojsubmit()">
+        <select id="selectAction">
+            <option value="/recursion.s">choose recursion method for counting silnia</option>
+            <option value="/iterating.s">choose iterating method for counting silnia</option>
+        </select>
 
-    <select id="selectAction">
-        <option value="/recursion.s">choose recursion method for counting silnia</option>
-        <option value="/iterating.s">choose iterating method for counting silnia</option>
-    </select>
+        <input type="number" name="n"/>
+        <input type="submit" value="wyślij zapytanie" var="btn1"/>
 
-    <input type="number" name="n"/>
-    <input type="submit" value="wyślij zapytanie" var="btn1"/>
-
-</form>
+    </form>
     <!--<label for="type" th:text="#{seedstarter.type}">Type</label>-->
 
+    <form id="form1" method="POST" accept-charset="utf-8" action="/recursion.s" onsubmit="return mojsubmit()">
+<!--not working properly yet-->
+    <select id="selectAction">
+        <option th:each="dropDownItem : ${dropDownItems}"
+                th:value="${dropDownItem.value}"
+                th:text="${dropDownItem.key}"
+                                     />
+    </select>
+    </form>
 
 
-<select>
-    <option th:each="dropDownItem : ${dropDownItems}"
-            th:value="${dropDownItem.value}"
-            th:text="${dropDownItem.key}" />
-</select>
 
-
-
-
-<!--<form th:for="a" id="form1" method="POST" accept-charset="utf-8" action="/recursion.s" onsubmit="th:return mojsubmit()">-->
-<!--&lt;!&ndash;<select th:id="dropID" onsubmit="return mojosubmit()">&ndash;&gt;-->
+    <!--<form th:for="a" id="form1" method="POST" accept-charset="utf-8" action="/recursion.s" onsubmit="th:return mojsubmit()">-->
+    <!--&lt;!&ndash;<select th:id="dropID" onsubmit="return mojosubmit()">&ndash;&gt;-->
     <!--<select th:field="*{a}">-->
-        <!--<option th:each="a : ${allTypes}"-->
-                <!--th:value="${type}"-->
-                <!--th:text="#{${type}}">Wireframe</option>-->
+    <!--<option th:each="a : ${allTypes}"-->
+    <!--th:value="${type}"-->
+    <!--th:text="#{${type}}">Wireframe</option>-->
     <!--</select>-->
 
-<!--</form>-->
+    <!--</form>-->
 
-<ttr>
-    <th:each items="${silniaList}">
-        <td th:text="${silniaList}"/>
-        <input type="reset" value="Wyczysc" name="wyczysc"/>
-        <!--dodać funkcjonalność do buttona-->
-    </th:each>
-</ttr>
+    <th:block>
+        <th:each items="${silniaList}">
+            <td th:text="${silniaList}"/>
+            <input type="reset" value="Wyczysc" name="wyczysc"/>
+            <!--dodać funkcjonalność do buttona-->
+        </th:each>
+    </th:block>
 
-</tbody>
-<tfooter>
+    </tbody>
+    <tfooter>
 
-    <h5 th:text="${message}"></h5>
+        <h5 th:text="${message}"></h5>
 
-</tfooter>
+    </tfooter>
 </thtml>

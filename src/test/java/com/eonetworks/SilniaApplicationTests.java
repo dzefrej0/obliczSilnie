@@ -11,16 +11,22 @@ public class SilniaApplicationTests {
 
     @Test
     public void ShouldReturnRightNumberRecursion() throws Exception {
+        //given
         int a = 12;
+        //when
         BigInteger silnia = silniaService.obliczSilniaRekurencja(a);
+        //then
         assertEquals(silnia.intValue(), 479001600);
 
     }
 
     @Test
     public void shouldReturnRightNumberIterating() throws Exception {
-
-        BigInteger silnia1 = silniaService.liczIteracja(12);
+        //given
+        int a = 12;
+        //when
+        BigInteger silnia1 = silniaService.liczIteracja(a);
+        //then
         assertEquals(silnia1.intValue(), 479001600);
     }
 }

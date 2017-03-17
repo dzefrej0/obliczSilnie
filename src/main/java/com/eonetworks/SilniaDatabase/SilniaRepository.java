@@ -2,8 +2,8 @@ package com.eonetworks.SilniaDatabase;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface SilniaRepository extends CrudRepository<SilniaBD, Long> {
+public interface SilniaRepository extends CrudRepository<SilniaDB, Integer> {
 
-    public SilniaBD findByNumber(Integer number);
+    public SilniaDB findByNumber(Integer number);
 
 }
