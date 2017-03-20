@@ -7,37 +7,42 @@ public class SilniaDB {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
-
-    @Column
-    private Integer number;
+    private Long id;
 
     @Column
-    private Integer score;
+    private int number;
 
-    private Integer cośtam = 12345;
 
-    public Integer getNumber() {
+
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber (int number){this.number=number;}
+
+
+    public SilniaDB setNumber1(int number) {
         this.number = number;
+        return this;
     }
 
-    public Integer getScore() {
-        return score;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
-    }
-
-    public void ustaw() {
-        number = 20;
-    }
     public SilniaDB withNumber(final int number) {
         this.number = number;
         return this;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    @Override
+    public String toString() {
+        return "TaskEntity{" +
+                "id=" + id +
+                "number=" + number +
+                '}';
     }
 }
