@@ -32,20 +32,15 @@ public class SilniaController {
     @RequestMapping("/db")
     @ResponseBody
     public String testMethod() {
-
         StringBuilder response = new StringBuilder();
 
         SilniaDB silniaDB = new SilniaDB()
-                .setNumber1(23);
+                .setNumberForDB(23);
         silniaRepository.save(silniaDB);
-
-
-
-
+        
         for (SilniaDB i : silniaRepository.findAll()) {
             response.append(i).append("<br>");
-        }
-        return response.toString();
+        }  return response.toString();
     }
 
     @RequestMapping(value = "silnia.s", method = RequestMethod.GET)
@@ -53,15 +48,17 @@ public class SilniaController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("silnia1");
         List<BigInteger> all = silniaService.getAll();
-
         model.addAttribute("message", "wyświetlenie tej wiadomości oznacza że thymeleaf działa!");
         model.addAttribute("title1", "Oblicz wartość silni");
 
+        for (BigInteger result: all) {
 
-//        SilniaDB silniaDB = new SilniaDB()
-//              //  .withResult((BigInteger) all);
-//        silniaRepository.save(silniaDB);
 
+
+        SilniaDB silniaDB = new SilniaDB()
+             .withResult(result);
+        silniaRepository.save(silniaDB);
+    }
         try {
             Map<String, String> sampleDropdownMap = new HashMap<String, String>();
             sampleDropdownMap.put("wybierz metodę iteracyjną", "ChooseIterating");
@@ -79,9 +76,9 @@ public class SilniaController {
     @RequestMapping(value = "iterating.s", method = RequestMethod.POST)
     public ModelAndView liczIteracja(@RequestParam int n) throws ServletException, IOException {
         silniaService.liczIteracja(n);
-
+        
         SilniaDB silniaDB = new SilniaDB()
-                .setNumber1(n);
+                .setNumberForDB(n);
         silniaRepository.save(silniaDB);
 
 
@@ -94,7 +91,7 @@ public class SilniaController {
         silniaService.obliczSilniaRekurencja(n);
 
         SilniaDB silniaDB = new SilniaDB()
-                .setNumber1(n);
+                .setNumberForDB(n);
         silniaRepository.save(silniaDB);
 
 

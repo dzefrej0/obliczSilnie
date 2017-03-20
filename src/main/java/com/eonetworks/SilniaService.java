@@ -1,19 +1,15 @@
 package com.eonetworks;
 
 import org.springframework.stereotype.Service;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.stereotype.Service;
-
 
 
 @Service
 public class SilniaService {
-    BigInteger m;
-    BigInteger c;
-    BigInteger z;
-    BigInteger k = BigInteger.ONE;
+
 
     private List<BigInteger> output1 = new ArrayList<BigInteger>();
 
@@ -40,21 +36,20 @@ public class SilniaService {
         BigInteger factorial = BigInteger.ONE;
         BigInteger factz = BigInteger.valueOf(n);
 
-        if(n>12000)
+        if (n > 12000)
             throw new ArithmeticException("Nie    0");
-        else
-        if (n == 0) {
+        else if (n == 0) {
             return factorial;
         } else {
             return factz.multiply(silnia1(n - 1));
         }
     }
-    public BigInteger obliczSilniaRekurencja(int n){
+
+    public BigInteger obliczSilniaRekurencja(int n) {
 
         output.add(silnia1(n));
         return silnia1(n);
     }
-
 
 
 //    public static void main(String[] args) {

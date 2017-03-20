@@ -21,4 +21,7 @@ Sukces. Teraz możesz uruchomić serwer bazy danych używając:
 
     "C:\POSTGR~1\pg96\bin\"pg_ctl -D "C:\PostgreSQL\data\pg96" -l plik_z_logami start
     
-    Więc w directody postgre należy odpalić         pg_ctl -D "C:\PostgreSQL\data\pg96" -l plik_z_logami start
+          pg_ctl -D "C:\PostgreSQL\data\pg96" -l plik_z_logami start
+
+login : dzefrej0
+pass:   postgres

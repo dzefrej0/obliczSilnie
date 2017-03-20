@@ -23,7 +23,7 @@ public class SilniaDB {
     public void setNumber (int number){this.number=number;}
 
 
-    public SilniaDB setNumber1(int number) {
+    public SilniaDB setNumberForDB(int number) {
         this.number = number;
         return this;
     }
