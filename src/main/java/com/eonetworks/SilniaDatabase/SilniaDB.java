@@ -1,17 +1,19 @@
 package com.eonetworks.SilniaDatabase;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 
 @Entity
 public class SilniaDB {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
 
     @Column
     private int number;
-
+    @Column
+    private BigInteger result;
 
 
     public int getNumber() {
@@ -31,18 +33,25 @@ public class SilniaDB {
         return this;
     }
 
-    public Long getId() {
-        return id;
+
+    public SilniaDB withResult(final BigInteger result) {
+        this.result = result;
+        return this;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+
     @Override
     public String toString() {
         return "TaskEntity{" +
-                "id=" + id +
                 "number=" + number +
                 '}';
+    }
+
+    public BigInteger getResult() {
+        return result;
+    }
+
+    public void setResult(BigInteger result) {
+        this.result = result;
     }
 }
