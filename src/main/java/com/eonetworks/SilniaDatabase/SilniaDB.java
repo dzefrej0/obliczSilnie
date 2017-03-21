@@ -8,10 +8,11 @@ public class SilniaDB {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
+private int Id;
 
     @Column
     private int number;
+
     @Column
     private BigInteger result;
 
@@ -24,6 +25,9 @@ public class SilniaDB {
 
 
     public SilniaDB setNumberForDB(int number) {
+//        if(number==0){
+//            System.out.println("zero zero");
+//        }
         this.number = number;
         return this;
     }
@@ -35,16 +39,12 @@ public class SilniaDB {
 
 
     public SilniaDB withResult(final BigInteger result) {
+//        if(number==0){
+//            System.out.println("    zero0");
+//        }
+
         this.result = result;
         return this;
-    }
-
-
-    @Override
-    public String toString() {
-        return "TaskEntity{" +
-                "number=" + number +
-                '}';
     }
 
     public BigInteger getResult() {

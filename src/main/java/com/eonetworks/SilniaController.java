@@ -14,9 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.ServletException;
 import java.io.IOException;
 import java.math.BigInteger;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @Controller
@@ -27,38 +25,34 @@ public class SilniaController {
     private SilniaRepository silniaRepository;
 
     public SilniaDB silniaDB;
+BigInteger result;
+    List<BigInteger> all = new ArrayList<>();
 
 
-    @RequestMapping("/db")
-    @ResponseBody
-    public String testMethod() {
-        StringBuilder response = new StringBuilder();
 
-        SilniaDB silniaDB = new SilniaDB()
-                .setNumberForDB(23);
-        silniaRepository.save(silniaDB);
-        
-        for (SilniaDB i : silniaRepository.findAll()) {
-            response.append(i).append("<br>");
-        }  return response.toString();
-    }
 
     @RequestMapping(value = "silnia.s", method = RequestMethod.GET)
     public ModelAndView printAll(Model model) throws ServletException, IOException {
+        BigInteger zero = BigInteger.valueOf(0);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("silnia1");
-        List<BigInteger> all = silniaService.getAll();
+        all = silniaService.getAll();
         model.addAttribute("message", "wyświetlenie tej wiadomości oznacza że thymeleaf działa!");
         model.addAttribute("title1", "Oblicz wartość silni");
 
-        for (BigInteger result: all) {
+        SilniaDB silniaDB = new SilniaDB();
 
 
+//        all.forEach(result -> silniaDB.withResult(result));
+//        silniaRepository.save(silniaDB);
 
-        SilniaDB silniaDB = new SilniaDB()
-             .withResult(result);
+
+        for (BigInteger result:all) {
+            silniaDB.withResult(result);
+        }
         silniaRepository.save(silniaDB);
-    }
+
+
         try {
             Map<String, String> sampleDropdownMap = new HashMap<String, String>();
             sampleDropdownMap.put("wybierz metodę iteracyjną", "ChooseIterating");
@@ -76,11 +70,15 @@ public class SilniaController {
     @RequestMapping(value = "iterating.s", method = RequestMethod.POST)
     public ModelAndView liczIteracja(@RequestParam int n) throws ServletException, IOException {
         silniaService.liczIteracja(n);
-        
-        SilniaDB silniaDB = new SilniaDB()
-                .setNumberForDB(n);
-        silniaRepository.save(silniaDB);
+int zero = 0;
+        SilniaDB silniaDB = new SilniaDB();
 
+        if(silniaDB.setNumberForDB(n).equals(BigInteger.ZERO)){
+            System.out.println("zero zero");
+        }else {
+            silniaDB.setNumberForDB(n);
+            silniaRepository.save(silniaDB);
+        }
 
         System.out.println("iteracja");
         return new ModelAndView("redirect:silnia.s");
@@ -90,9 +88,10 @@ public class SilniaController {
     public ModelAndView obliczSilniaRekurencja(@RequestParam int n) throws ServletException, IOException {
         silniaService.obliczSilniaRekurencja(n);
 
-        SilniaDB silniaDB = new SilniaDB()
-                .setNumberForDB(n);
-        silniaRepository.save(silniaDB);
+        SilniaDB silniaDB = new SilniaDB();
+
+            silniaDB.setNumberForDB(n);
+            silniaRepository.save(silniaDB);
 
 
         System.out.println("rekurencja");
